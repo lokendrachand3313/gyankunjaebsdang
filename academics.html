@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academics - Gyankunja English School Dang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Copy base styles from index.html */
+        
+        .curriculum {
+            padding: 80px 0;
+        }
+        
+        .level-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .tab-btn {
+            padding: 12px 30px;
+            background: none;
+            border: 2px solid var(--secondary-color);
+            border-radius: 5px;
+            color: var(--secondary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .tab-btn.active,
+        .tab-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+        
+        .level-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .level-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .subject-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .subject-card {
+            background: var(--background-light);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .subject-card i {
+            font-size: 36px;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .calendar {
+            padding: 80px 0;
+            background: var(--background-light);
+        }
+        
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .term-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .term-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+        }
+        
+        .exam-list {
+            list-style: none;
+        }
+        
+        .exam-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Copy top bar and header -->
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2>Academics</h2>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / Academics
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum">
+        <div class="container">
+            <div class="section-title">
+                <h3>Our Curriculum</h3>
+                <p>Comprehensive education from pre-primary to secondary level</p>
+            </div>
+            
+            <div class="level-tabs">
+                <button class="tab-btn active" onclick="showLevel('primary')">Primary (1-5)</button>
+                <button class="tab-btn" onclick="showLevel('lower-secondary')">Lower Secondary (6-8)</button>
+                <button class="tab-btn" onclick="showLevel('secondary')">Secondary (9-10)</button>
+            </div>
+            
+            <div id="primary" class="level-content active">
+                <h4 style="text-align: center; margin-bottom: 20px;">Primary Level (Grades 1-5)</h4>
+                <div class="subject-grid">
+                    <div class="subject-card">
+                        <i class="fas fa-book"></i>
+                        <h5>English</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-calculator"></i>
+                        <h5>Mathematics</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-flask"></i>
+                        <h5>Science</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-globe"></i>
+                        <h5>Social Studies</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-language"></i>
+                        <h5>Nepali</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-paint-brush"></i>
+                        <h5>Creative Arts</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="lower-secondary" class="level-content">
+                <h4 style="text-align: center; margin-bottom: 20px;">Lower Secondary (Grades 6-8)</h4>
+                <div class="subject-grid">
+                    <div class="subject-card">
+                        <i class="fas fa-book"></i>
+                        <h5>English</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-calculator"></i>
+                        <h5>Mathematics</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-flask"></i>
+                        <h5>Science</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-globe"></i>
+                        <h5>Social Studies</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-language"></i>
+                        <h5>Nepali</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-laptop"></i>
+                        <h5>Computer Science</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h5>Account (Optional)</h5>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="secondary" class="level-content">
+                <h4 style="text-align: center; margin-bottom: 20px;">Secondary (Grades 9-10)</h4>
+                <div class="subject-grid">
+                    <div class="subject-card">
+                        <i class="fas fa-book"></i>
+                        <h5>Compulsory English</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-calculator"></i>
+                        <h5>Compulsory Math</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-flask"></i>
+                        <h5>Science</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-globe"></i>
+                        <h5>Social Studies</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-language"></i>
+                        <h5>Nepali</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-laptop"></i>
+                        <h5>Computer / OPT Math</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h5>Accountancy</h5>
+                    </div>
+                    <div class="subject-card">
+                        <i class="fas fa-heart"></i>
+                        <h5>Health & Population</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Calendar -->
+    <section class="calendar">
+        <div class="container">
+            <div class="section-title">
+                <h3>Academic Calendar 2026</h3>
+                <p>Important dates for the academic year</p>
+            </div>
+            
+            <div class="calendar-grid">
+                <div class="term-card">
+                    <h4>First Term</h4>
+                    <ul class="exam-list">
+                        <li><strong>Start Date:</strong> April 15, 2026</li>
+                        <li><strong>First Terminal Exam:</strong> July 10-20, 2026</li>
+                        <li><strong>End Date:</strong> August 30, 2026</li>
+                        <li><strong>Holiday Break:</strong> August 31 - September 15</li>
+                    </ul>
+                </div>
+                
+                <div class="term-card">
+                    <h4>Second Term</h4>
+                    <ul class="exam-list">
+                        <li><strong>Start Date:</strong> September 16, 2026</li>
+                        <li><strong>Second Terminal Exam:</strong> December 5-15, 2026</li>
+                        <li><strong>End Date:</strong> December 30, 2026</li>
+                        <li><strong>Winter Break:</strong> January 1-15, 2027</li>
+                    </ul>
+                </div>
+                
+                <div class="term-card">
+                    <h4>Final Term</h4>
+                    <ul class="exam-list">
+                        <li><strong>Start Date:</strong> January 16, 2027</li>
+                        <li><strong>Pre-Board Exam:</strong> March 1-10, 2027</li>
+                        <li><strong>Final Exam:</strong> April 1-15, 2027</li>
+                        <li><strong>Result Publication:</strong> April 30, 2027</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function showLevel(level) {
+            // Hide all content
+            document.querySelectorAll('.level-content').forEach(el => {
+                el.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected content
+            document.getElementById(level).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+    </script>
+    
+    <!-- Copy footer -->
+</body>
+</html>
