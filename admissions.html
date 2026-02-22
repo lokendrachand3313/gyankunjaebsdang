@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admissions - Gyankunja English School Dang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Copy base styles */
+        
+        .admission-info {
+            padding: 80px 0;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .step-card {
+            text-align: center;
+            padding: 30px;
+            background: var(--background-light);
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .fee-structure {
+            padding: 80px 0;
+            background: var(--background-light);
+        }
+        
+        .fee-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .fee-table th,
+        .fee-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .fee-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .fee-table tr:hover {
+            background: var(--background-light);
+        }
+        
+        .doc-list {
+            list-style: none;
+        }
+        
+        .doc-list li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #ddd;
+        }
+        
+        .doc-list li i {
+            color: var(--secondary-color);
+            margin-right: 10px;
+        }
+        
+        .application-form {
+            padding: 80px 0;
+        }
+        
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .submit-btn {
+            background: var(--secondary-color);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Copy top bar and header -->
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2>Admissions</h2>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / Admissions
+            </div>
+        </div>
+    </section>
+
+    <!-- Admission Info -->
+    <section class="admission-info">
+        <div class="container">
+            <div class="section-title">
+                <h3>Admission Process 2026-27</h3>
+                <p>Join Gyankunja English School - Where Excellence Begins</p>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Apply Online/Offline</h4>
+                    <p>Fill the application form online or collect it from school office</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Submit Documents</h4>
+                    <p>Submit required documents with application fee</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Entrance Exam</h4>
+                    <p>Appear for entrance test (for grades 5 and above)</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Interview & Enrollment</h4>
+                    <p>Parent-student interview and fee payment</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p><strong>Important Dates:</strong> Applications open: March 1, 2026 | Entrance Exam: April 10, 2026 | Classes begin: April 15, 2026</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fee Structure -->
+    <section class="fee-structure">
+        <div class="container">
+            <div class="section-title">
+                <h3>Fee Structure 2026-27</h3>
+                <p>Affordable quality education</p>
+            </div>
+            
+            <table class="fee-table">
+                <thead>
+                    <tr>
+                        <th>Grade</th>
+                        <th>Admission Fee</th>
+                        <th>Tuition Fee (Monthly)</th>
+                        <th>Annual Charges</th>
+                        <th>Total (Annual)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pre-Primary (Nursery, LKG, UKG)</td>
+                        <td>Rs. 5,000</td>
+                        <td>Rs. 2,000</td>
+                        <td>Rs. 3,000</td>
+                        <td>Rs. 32,000</td>
+                    </tr>
+                    <tr>
+                        <td>Primary (1-5)</td>
+                        <td>Rs. 6,000</td>
+                        <td>Rs. 2,500</td>
+                        <td>Rs. 4,000</td>
+                        <td>Rs. 40,000</td>
+                    </tr>
+                    <tr>
+                        <td>Lower Secondary (6-8)</td>
+                        <td>Rs. 7,000</td>
+                        <td>Rs. 3,000</td>
+                        <td>Rs. 5,000</td>
+                        <td>Rs. 48,000</td>
+                    </tr>
+                    <tr>
+                        <td>Secondary (9-10)</td>
+                        <td>Rs. 8,000</td>
+                        <td>Rs. 3,500</td>
+                        <td>Rs. 6,000</td>
+                        <td>Rs. 56,000</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <p style="margin-top: 20px; color: #666;"><i class="fas fa-info-circle"></i> Note: Fees are subject to revision. Transportation and exam fees are extra.</p>
+        </div>
+    </section>
+
+    <!-- Documents Required -->
+    <section class="admission-info">
+        <div class="container">
+            <div class="section-title">
+                <h3>Documents Required</h3>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <h4 style="margin-bottom: 20px;">For New Admission</h4>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-check-circle"></i> Birth Certificate (Original + 2 copies)</li>
+                        <li><i class="fas fa-check-circle"></i> Recent passport size photos (4 copies)</li>
+                        <li><i class="fas fa-check-circle"></i> Parents' citizenship copies</li>
+                        <li><i class="fas fa-check-circle"></i> Previous school leaving certificate (if applicable)</li>
+                        <li><i class="fas fa-check-circle"></i> Transfer certificate (for grades above 1)</li>
+                        <li><i class="fas fa-check-circle"></i> Vaccination card (for pre-primary)</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 style="margin-bottom: 20px;">Admission Requirements by Grade</h4>
+                    <ul class="doc-list">
+                        <li><i class="fas fa-child"></i> <strong>Pre-Primary:</strong> Age 3+ (Nursery), 4+ (LKG), 5+ (UKG)</li>
+                        <li><i class="fas fa-user-graduate"></i> <strong>Grade 1:</strong> Should have completed UKG</li>
+                        <li><i class="fas fa-book-open"></i> <strong>Grades 2-8:</strong> Previous grade pass certificate</li>
+                        <li><i class="fas fa-trophy"></i> <strong>Grades 9-10:</strong> SEE preparation with good foundation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form -->
+    <section class="application-form">
+        <div class="container">
+            <div class="section-title">
+                <h3>Apply for Admission</h3>
+                <p>Fill the form below to start your application</p>
+            </div>
+            
+            <div class="form-container">
+                <form id="admissionForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Student's Full Name *</label>
+                            <input type="text" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth *</label>
+                            <input type="date" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Gender *</label>
+                            <select required>
+                                <option value="">Select</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Applying for Grade *</label>
+                            <select required>
+                                <option value="">Select Grade</option>
+                                <option>Nursery</option>
+                                <option>LKG</option>
+                                <option>UKG</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Father's Name *</label>
+                        <input type="text" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Father's Contact *</label>
+                            <input type="tel" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Mother's Contact</label>
+                            <input type="tel">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Address *</label>
+                        <textarea rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Previous School (if any)</label>
+                        <input type="text">
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById('admissionForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for applying! We will contact you soon.');
+            this.reset();
+        });
+    </script>
+    
+    <!-- Copy footer -->
+</body>
+</html>
