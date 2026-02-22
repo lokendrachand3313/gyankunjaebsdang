@@ -114,4 +114,221 @@
         .lightbox-nav {
             position: absolute;
             width: 100%;
-            display: flex
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .lightbox-nav button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            padding: 20px;
+        }
+        
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .video-item {
+            background: var(--background-light);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .video-item iframe {
+            width: 100%;
+            height: 250px;
+        }
+        
+        .video-info {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Copy top bar and header -->
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2>Photo Gallery</h2>
+            <div class="breadcrumb">
+                <a href="index.html">Home</a> / Gallery
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-filters">
+                <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+                <button class="filter-btn" onclick="filterGallery('events')">Events</button>
+                <button class="filter-btn" onclick="filterGallery('sports')">Sports</button>
+                <button class="filter-btn" onclick="filterGallery('academics')">Academics</button>
+                <button class="filter-btn" onclick="filterGallery('infrastructure')">Infrastructure</button>
+            </div>
+            
+            <div class="gallery-container" id="galleryContainer">
+                <!-- Gallery items will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Gallery -->
+    <section class="gallery-section" style="background: var(--background-light);">
+        <div class="container">
+            <div class="section-title">
+                <h3>Video Gallery</h3>
+                <p>Moments captured on video</p>
+            </div>
+            
+            <div class="video-grid">
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h4>Annual Day Celebration 2025</h4>
+                        <p>Watch the highlights of our annual day function</p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h4>Sports Day 2025</h4>
+                        <p>Exciting moments from our sports day</p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h4>School Tour 2025</h4>
+                        <p>Take a virtual tour of our campus</p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-info">
+                        <h4>Science Exhibition</h4>
+                        <p>Students showcasing their projects</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-nav">
+            <button onclick="changeImage(-1)">&#10094;</button>
+            <button onclick="changeImage(1)">&#10095;</button>
+        </div>
+        <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <script>
+        // Gallery data
+        const galleryItems = [
+            { src: 'https://images.unsplash.com/photo-1577896851231-70ef18881754', category: 'academics', title: 'Classroom Learning' },
+            { src: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655', category: 'infrastructure', title: 'Library' },
+            { src: 'https://images.unsplash.com/photo-1569517282132-25d22e457d7a', category: 'sports', title: 'Sports Day' },
+            { src: 'https://images.unsplash.com/photo-1509062522246-3755977927d7', category: 'academics', title: 'Science Lab' },
+            { src: 'https://images.unsplash.com/photo-1497633762265-9d0e5a5c44a4', category: 'events', title: 'Annual Day' },
+            { src: 'https://images.unsplash.com/photo-1503676260728-517c890a2a28', category: 'academics', title: 'Computer Lab' },
+            { src: 'https://images.unsplash.com/photo-1526976668912-1a811878dd37', category: 'infrastructure', title: 'Playground' },
+            { src: 'https://images.unsplash.com/photo-1580582932707-520aed937b7b', category: 'infrastructure', title: 'School Building' },
+            { src: 'https://images.unsplash.com/photo-1540479859555-17af45c78602', category: 'events', title: 'Cultural Program' },
+        ];
+        
+        let currentFilter = 'all';
+        let currentIndex = 0;
+        
+        function displayGallery() {
+            const container = document.getElementById('galleryContainer');
+            container.innerHTML = '';
+            
+            const filtered = currentFilter === 'all' 
+                ? galleryItems 
+                : galleryItems.filter(item => item.category === currentFilter);
+            
+            filtered.forEach((item, index) => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.innerHTML = `
+                    <img src="${item.src}?w=400&h=300&fit=crop" alt="${item.title}" onclick="openLightbox(${index})">
+                    <div class="overlay">
+                        <h4>${item.title}</h4>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+        
+        function filterGallery(category) {
+            currentFilter = category;
+            
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.textContent.toLowerCase().includes(category) || 
+                   (category === 'all' && btn.textContent === 'All')) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            displayGallery();
+        }
+        
+        function openLightbox(index) {
+            const filtered = currentFilter === 'all' 
+                ? galleryItems 
+                : galleryItems.filter(item => item.category === currentFilter);
+            
+            currentIndex = index;
+            const img = document.getElementById('lightboxImg');
+            img.src = filtered[index].src + '?w=1200&h=800&fit=crop';
+            document.getElementById('lightbox').classList.add('active');
+        }
+        
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+        
+        function changeImage(direction) {
+            const filtered = currentFilter === 'all' 
+                ? galleryItems 
+                : galleryItems.filter(item => item.category === currentFilter);
+            
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = filtered.length - 1;
+            if (currentIndex >= filtered.length) currentIndex = 0;
+            
+            const img = document.getElementById('lightboxImg');
+            img.src = filtered[currentIndex].src + '?w=1200&h=800&fit=crop';
+        }
+        
+        // Initialize gallery
+        displayGallery();
+        
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', function(e) {
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') changeImage(-1);
+                if (e.key === 'ArrowRight') changeImage(1);
+                if (e.key === 'Escape') closeLightbox();
+            }
+        });
+    </script>
+    
+    <!-- Copy footer -->
+</body>
+</html>
